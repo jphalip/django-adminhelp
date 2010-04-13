@@ -1,3 +1,11 @@
+# Copyright (c) 2010 Guilherme Gondim and contributors
+#
+# This file is part of Django Admin Help.
+#
+# Django Admin Help is free software under terms of the GNU Lesser
+# General Public License version 3 (LGPLv3) as published by the Free
+# Software Foundation. See the file README for copying conditions.
+
 from django import http
 from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import get_object_or_404, render_to_response
