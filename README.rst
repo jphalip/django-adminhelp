@@ -47,6 +47,14 @@ the project *URLConf* like follow::
 
 *Don't forget to run the command syncdb.*
 
+Admin Help also provides templates to show a "help" button on some admin
+pages. You can setup the ModelAdmin you are interested like follow::
+
+    class ExampleAdmin(admin.ModelAdmin):
+        change_form_template = 'adminhelp/admin/change_form.html'
+        change_list_template = 'adminhelp/admin/change_list.html'
+        ...
+
 
 Contributing
 ============
