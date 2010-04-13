@@ -29,11 +29,16 @@ or::
 
 .. _`Python Package Index (PyPI)`: http://pypi.python.org
 
-
 Alternatively, you can install Admin Help from source code running the follow
 command on directory that contains the file ``setup.py``::
 
   python setup.py install
+
+
+Admin Help needs these softwares to run properly:
+
+* Django 1.2+
+* `django-positions <http://github.com/jpwatts/django-positions>`_ 0.4.1
 
 After installation you need configure your project to recognizes the Admin Help
 application adding ``'adminhelp'`` to your ``INSTALLED_APPS`` setting and setup
@@ -51,9 +56,20 @@ Admin Help also provides templates to show a "help" button on some admin
 pages. You can setup the ModelAdmin you are interested like follow::
 
     class ExampleAdmin(admin.ModelAdmin):
-        change_form_template = 'adminhelp/admin/change_form.html'
         change_list_template = 'adminhelp/admin/change_list.html'
+        change_form_template = 'adminhelp/admin/change_form.html'
         ...
+
+You will need add the ``django.core.context_processors.request`` on your
+``TEMPLATE_CONTEXT_PROCESSORS`` to use these templates and the template tags
+``help_link`` and ``help_list_item``.
+
+::
+
+    TEMPLATE_CONTEXT_PROCESSORS = (
+        # ...
+        'django.core.context_processors.request',
+    )
 
 
 Contributing
